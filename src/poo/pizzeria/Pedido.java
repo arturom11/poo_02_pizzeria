@@ -96,6 +96,41 @@ public class Pedido {
         this.estado = facturado;
     }
     
+    public void confirmar (Factura factura, EstadoPedido confirmado) {
+        // asignamos la factura para este pedido
+        this.factura = factura;
+        
+        // y realizamos el cambio de estado correspondiente
+        this.estado = confirmado;
+    }
+    
+    public void cancelar(Factura factura, EstadoPedido cancelado) {
+        // asignamos la factura para este pedido
+        this.factura = factura;
+        
+        // y realizamos el cambio de estado correspondiente
+        this.estado = cancelado;
+    }
+    
+    public void terminar(Factura factura, EstadoPedido terminado) {
+        // asignamos la factura para este pedido
+        this.factura = factura;
+        
+        // y realizamos el cambio de estado correspondiente
+        this.estado = terminado;
+    }
+    
+    public void MostrarNombreCliente(){
+        System.out.println(this.nombreCliente);
+    }
+    
+    public void MostrarNumero(){
+        System.out.println(this.numero);
+    }
+    
+    public List<DetallePedido> obtenerDetallesPedido(){
+        return this.detallesPedido;
+    }
     // A continuación se listan todos los métodos de seteo
     // de cada atributo de la clase
 

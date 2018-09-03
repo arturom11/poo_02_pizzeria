@@ -5,6 +5,7 @@
  */
 package poo.pizzeria;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -83,5 +84,23 @@ public class Factura {
 
     public void setDetallesPedido(List<DetallePedido> detallesPedido) {
         this.detallesPedido = detallesPedido;
+    }
+    
+    public List<DetallePedido> buscarItemsAFacturar (){
+        List<DetallePedido> pendientes = new ArrayList<>();
+        for (DetallePedido dp : detallesPedido){
+            if (dp.getEstado().esPteFacturacion()){
+                pendientes.add(dp);
+            }
+        }
+            return pendientes;
+    }
+    
+    public BigDecimal calcTotalFactura(){
+        BigDecimal total = BigDecimal.ZERO;
+        for (DetallePedido dp : detallesPedido){
+            total=dp.calcTotalItem().add(total);
+        }
+        return total;
     }
 }

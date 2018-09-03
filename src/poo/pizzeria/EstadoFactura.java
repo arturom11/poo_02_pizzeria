@@ -38,7 +38,9 @@ public class EstadoFactura {
     public boolean esGenerada() {
         return nombre.equals("Generada");
     }
-    
+     public boolean esPteFacturacion() {
+        return nombre.equals("Pendiente de Facturación");
+    }
     
     // A continuación se listan todos los métodos de seteo
     // de cada atributo de la clase

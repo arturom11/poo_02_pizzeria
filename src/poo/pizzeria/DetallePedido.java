@@ -101,7 +101,15 @@ public class DetallePedido {
     public void setEstado(EstadoPedido estado) {
         this.estado = estado;
     }
-
+    public void cancelar(){
+        EstadoPedido ep = new EstadoPedido("CANCELADO","ha sido cancelado por el cliente");
+        this.setEstado(ep);
+    }
+    
+    public void mostrarDetallePedido(){
+        System.out.println(this.toString());
+    }
+    
     @Override
     public String toString() {
         StringBuilder sb=new StringBuilder();

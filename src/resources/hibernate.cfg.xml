@@ -4,12 +4,12 @@
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/poo-pizzeria?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/poo_02_pizzeria</property>
     <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">root</property>
+    <property name="hibernate.connection.password">1862459</property>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.connection.autocommit">true</property>
-    <mapping resource="resources/hbm/TipoPizza.hbm.xml"/>
+    <mapping class="" file="" jar="" package="" resource="resources/hbm/TipoPizza.hbm.xml"/>
     <mapping resource="resources/hbm/VariedadPizza.hbm.xml"/>
     <mapping resource="resources/hbm/TamanioPizza.hbm.xml"/>
     <mapping resource="resources/hbm/Pizza.hbm.xml"/>

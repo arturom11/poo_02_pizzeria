@@ -5,14 +5,19 @@
  */
 package poo.pizzeria.controller;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import poo.pizzeria.DetallePedido;
 import poo.pizzeria.EstadoFactura;
 import poo.pizzeria.EstadoPedido;
 import poo.pizzeria.Factura;
 import poo.pizzeria.Pedido;
+import poo.pizzeria.Pizza;
 import poo.pizzeria.dao.EstadosFacturaDao;
 import poo.pizzeria.dao.EstadosFacturaDaoHibernateImpl;
 import poo.pizzeria.dao.FacturasDao;
@@ -89,6 +94,23 @@ public class GestorFacturacion {
     
     public void iniciarGenerarReporte () {
         new GestorReporte(sessionFactory).run();
+    }
+
+    public void AgregarPedido() {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        Pedido nuevo = new Pedido();
+        nuevo.setNombreCliente("Clara Perez");
+        Date ya = new Date();
+        nuevo.setFechaHoraCreacion(ya);
+        nuevo.setEstado(new EstadoPedido("confirmado","hay que hacerlo"));
+        List<DetallePedido> detped = new ArrayList<>();
+        detped.add(new DetallePedido(2,new BigDecimal(80.00),new Pizza("Grande Muzzarella",
+                new BigDecimal(40.00)),new EstadoPedido("confirmado","hay que hacerlo")));
+        nuevo.setDetallesPedido(detped);
+        session.save(nuevo);
+        session.getTransaction();
+        session.close();
     }
 
 }
